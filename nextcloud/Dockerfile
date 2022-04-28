@@ -1,4 +1,4 @@
-FROM nextcloud:22.2.5
+FROM nextcloud:22.2.6
 
 RUN apt-get update && \
     apt-get upgrade -y && \
