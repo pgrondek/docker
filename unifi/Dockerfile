@@ -10,10 +10,11 @@ RUN cd /srv && \
     rmdir /srv/UniFi && \
     rm /srv/unifi/bin/mongod && \
     chmod +x /srv/unifi/run.sh && \
-    apk add --no-cache openjdk8-jre mongodb && \
+    apk add --no-cache openjdk8-jre mongodb libc6-compat && \
     adduser -D -H -h /srv/unifi unifi && \
     mkdir -p /srv/unifi/logs \
-             /srv/unifi/data && \
+             /srv/unifi/data \
+             /srv/unifi/run && \
     chown -R unifi:unifi /srv/unifi && \
     ln -s /dev/stdout /srv/unifi/logs/server.log && \
     ln -s /dev/stdout /srv/unifi/logs/mongod.log && \
