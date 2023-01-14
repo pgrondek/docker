@@ -1,4 +1,4 @@
-FROM alpine:3.15
+FROM alpine:3.17
 
 RUN apk --update --no-cache add bind bind-plugins && \
     mkdir -p /var/cache/bind
