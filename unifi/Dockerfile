@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM alpine:3.10
 
 ARG VERSION
 ADD http://www.ubnt.com/downloads/unifi/$VERSION/UniFi.unix.zip /srv/unifi.zip
@@ -13,7 +13,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/main' >> /etc/apk/repositori
     rm /srv/unifi/bin/mongod && \
     chmod +x /srv/unifi/run.sh && \
     apk update && \
-    apk add --no-cache openjdk11-jre mongodb libc6-compat && \
+    apk add --no-cache openjdk11-jre mongodb libc6-compat yaml-cpp && \
     adduser -D -H -h /srv/unifi unifi && \
     mkdir -p /srv/unifi/logs \
              /srv/unifi/data \
