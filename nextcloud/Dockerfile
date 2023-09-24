@@ -1,4 +1,4 @@
-FROM nextcloud:27.0.2
+FROM nextcloud:27.1.1
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -10,6 +10,7 @@ RUN apt-get update && \
     echo "0 3 * * * php -f /var/www/html/occ app:update --all" >> /var/spool/cron/crontabs/www-data
 
 COPY supervisord.conf /etc/supervisor/supervisord.conf
+COPY .htaccess /var/www/html
 
 ENV NEXTCLOUD_UPDATE=1
 
