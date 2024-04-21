@@ -1,0 +1,16 @@
+steps:
+  - name: build image for building PrusaSlicer
+    image: woodpeckerci/plugin-docker-buildx
+    secrets:
+      - docker_username
+      - docker_password
+    settings:
+      dockerfile: builder/prusaslicer/Dockerfile
+      registry: docker.grondek.pl
+      repo: docker.grondek.pl/builder-prusaslicer
+      tag: latest
+      platforms: linux/amd64
+    when:
+      branch: ${CI_REPO_DEFAULT_BRANCH}
+      event: push
+
