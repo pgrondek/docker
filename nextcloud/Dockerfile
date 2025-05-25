@@ -1,4 +1,4 @@
-FROM nextcloud:31.0.0
+FROM nextcloud:31.0.5
 
 RUN apt-get update && \
     apt-get upgrade -y && \
